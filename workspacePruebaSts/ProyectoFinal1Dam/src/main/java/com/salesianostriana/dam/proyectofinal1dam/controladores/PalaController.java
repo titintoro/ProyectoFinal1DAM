@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.controladores;
+package com.salesianostriana.dam.proyectofinal1dam.controladores;
 
 import java.util.Optional;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.pruebaproyectofinal.model.Pala;
-import com.salesianostriana.dam.pruebaproyectofinal.servicios.PalaServicio;
+import com.salesianostriana.dam.proyectofinal1dam.model.Pala;
+import com.salesianostriana.dam.proyectofinal1dam.servicios.PalaServicio;
 
 
 //Clase basada en AlumnoController del proyecto 13_Crud, consultar dudas ahi
@@ -27,13 +27,13 @@ public class PalaController {
 	@GetMapping({"/", "/list"})
 	public String listarPalas(Model model) {
 		model.addAttribute("lista", palaServicio.findAll());
-		return "index";
+		return "productos";
 	}
 	
 	@GetMapping("/nuevo")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("pala", new Pala());
-		return "formulario";
+		return "formPala";
 	}
 	
 	@PostMapping("/nuevo/submit")
@@ -42,12 +42,12 @@ public class PalaController {
 		return "redirect:/list";
 	}
 	
-	@GetMapping("editar/{id}")
-	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
+	@GetMapping("editar/{idPala}")
+	public String mostrarFormularioEdicion(@PathVariable("idPala") long id, Model model) {
 		Optional<Pala> pEditar = palaServicio.findById(id);
 		if (pEditar != null) {
 			model.addAttribute("pala", pEditar);
-			return "formulario";
+			return "formPala";
 		} else {
 			return "redirect:/list";
 		}
@@ -60,8 +60,8 @@ public class PalaController {
 		return "redirect:/list";
 	}
 	
-	@GetMapping("/borrar/{id}")
-	public String borrar(@PathVariable("id") long id) {
+	@GetMapping("/borrar/{idPala}")
+	public String borrar(@PathVariable("idPala") long id) {
 		palaServicio.deleteById(id);
 		return "redirect:/list";
 	}
