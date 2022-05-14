@@ -55,7 +55,7 @@
                 <tr th:each="pala : ${lista}">
                     <td th:text="${pala.idPala}">1</td>
                     <td th:text="${pala.marca}">Marca</td>
-                    <td th:text="${pala.modelo}">Modelo</td>
+                    <td th:text="${pala.nombre}">Modelo</td>
                     <td th:text="${pala.unidades}">UDS</td>
                     <td><button class="btn btn-warning"><a th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a></button></td>
                     <td><button class="btn btn-danger"><a th:href="@{/borrar/{id}(id=${pala.idPala})}">Borrar</a></button></td>
