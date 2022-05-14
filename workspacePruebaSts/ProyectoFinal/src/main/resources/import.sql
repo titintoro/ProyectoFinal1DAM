@@ -1,0 +1,1 @@
+INSERT INTO PALA (id_pala, nombre, marca, unidades, precio, imagen) VALUES (NEXTVAL('hibernate_sequence'),'Vertex','head','499', '100','https://thumb.pccomponentes.com/w-530-530/articles/12/123417/s8n3.jpg');

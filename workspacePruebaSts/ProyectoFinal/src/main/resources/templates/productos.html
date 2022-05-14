@@ -54,7 +54,11 @@
             <tbody>
                 <tr th:each="pala : ${lista}">
                     <td th:text="${pala.idPala}">1</td>
-                    <td th:
+                    <td><img width="100" height="100"
+                        th:src="${not (#strings.isEmpty(pala.imagen))} 
+                                              ? ${pala.imagen} : 'http://placehold.it/48x48'"
+                         alt="imagen del producto" />
+                    </td>
                     <td th:text="${pala.marca}">Marca</td>
                     <td th:text="${pala.nombre}">Modelo</td>
                     <td th:text="${pala.unidades}">UDS</td>
