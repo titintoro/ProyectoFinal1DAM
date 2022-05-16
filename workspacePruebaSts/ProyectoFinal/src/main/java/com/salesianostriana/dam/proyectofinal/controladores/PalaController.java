@@ -24,13 +24,14 @@ public class PalaController {
 		this.palaServicio= servicio;
 	}
 	
-	@GetMapping({"/", "/list"})
+	
+	@GetMapping({"private/list"})
 	public String listarPalas(Model model) {
 		model.addAttribute("lista", palaServicio.findAll());
 		return "productos";
 	}
 	
-	@GetMapping("/nuevo")
+	@GetMapping("admin/nuevo")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("pala", new Pala());
 		return "formPala";
