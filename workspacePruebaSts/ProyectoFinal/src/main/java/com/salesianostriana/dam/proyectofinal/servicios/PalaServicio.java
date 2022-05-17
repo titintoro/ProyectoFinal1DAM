@@ -11,5 +11,6 @@ import com.salesianostriana.dam.proyectofinal.servicio.base.ServicioBaseImpl;
 @Service
 public class PalaServicio 
 	extends ServicioBaseImpl<Pala, Long, PalaRepository>{
-
+	
+	
 }
