@@ -26,12 +26,14 @@
                 <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
             </div>
             <div class="w-100 d-flex justify-content-center">
-                <button type="submit" class="btn btn-warning"><span class="text-dark fw-bold" id="logIn">Acceder</span></button>
+                <button type="submit" class="btn btn-warning"><span class="text-dark fw-bold" id="login">Acceder</span></button>
             </div>
         </form>
-        <p th:if="${loginError}" class="error">Error en el nombre de usuario y/o contraseña</p>
+        <div class="w-100">
+        <p th:if="${loginError}" class="error mx-auto">Error en el nombre de usuario y/o contraseña</p>
+        </div>
     </main>
-
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
 
 </html>

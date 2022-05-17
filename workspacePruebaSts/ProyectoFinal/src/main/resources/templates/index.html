@@ -7,9 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Inicio</title>
 </head>
-<body  class="fw-bold">
+<body class="fw-bold">
     <header th:replace="~{fragmentos/encabezado::encabezadoHeader}"></header>
     <nav th:replace="~{fragmentos/encabezado::encabezadoNav}"></nav>
+    
     <main class="min-vh-100">
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
@@ -24,14 +25,14 @@
             <!-- carrusel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../img/bn_next_.jpg" alt="bp_next" class="d-block" style="width:100%">
+                    <img src="../media/bn_next_.jpg" alt="bp_next" class="d-block" style="width:100%">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/textil_h_primavera.jpg" alt="textil_bp" class="d-block"
+                    <img src="../media/textil_h_primavera.jpg" alt="textil_bp" class="d-block"
                         style="width:100%">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/zapatillas_pv22.jpg" alt="zapatillas_bp" class="d-block"
+                    <img src="../media/zapatillas_pv22.jpg" alt="zapatillas_bp" class="d-block"
                         style="width:100%">
                 </div>
             </div>
@@ -46,6 +47,6 @@
             </button>
         </div>
     </main>
-    <footer th:replace="~{fragmentos/encabezado::encabezadoNav}"></footer>
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
 </html>
