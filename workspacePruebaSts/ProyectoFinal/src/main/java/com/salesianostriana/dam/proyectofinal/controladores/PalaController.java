@@ -40,7 +40,7 @@ public class PalaController {
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("pala") Pala p) {
 		palaServicio.save(p);
-		return "redirect:/list";
+		return "redirect:/private/list";
 	}
 	
 	@GetMapping("editar/{idPala}")
@@ -50,7 +50,7 @@ public class PalaController {
 			model.addAttribute("pala", pEditar.get());
 			return "formPala";
 		} else {
-			return "redirect:/list";
+			return "redirect:/private/list";
 		}
 	}
 	
@@ -58,14 +58,16 @@ public class PalaController {
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("pala") Pala p) {
 		palaServicio.edit(p);
-		return "redirect:/list";
+		return "redirect:/private/list";
 	}
 	
 	@GetMapping("/borrar/{idPala}")
 	public String borrar(@PathVariable("idPala") long id) {
 		palaServicio.deleteById(id);
-		return "redirect:/list";
+		return "redirect:/private/list";
 	}
+	
+
 	
 	
 	

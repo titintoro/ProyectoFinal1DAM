@@ -23,6 +23,12 @@
                     <th scope="col">Modelo</th>
                     <th scope="col">Uds</th>
                     <th scope="col">Precio</th>
+                    <th>
+                    <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="¿Qué necesitas?" aria-label="Busqueda">
+                    <button class="btn btn-secondary text-white" type="submit">Buscar</button>
+                	</form>
+                    </th>
                     
                 </tr>
             </thead>
@@ -37,8 +43,10 @@
                     <td th:text="${pala.nombre}">Modelo</td>
                     <td th:text="${pala.unidades}">Uds</td>
                     <td th:text="${pala.precio}">Precio</td>
-                    <td><button class="btn btn-warning"><a th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a></button></td>
-                    <td><button class="btn btn-danger"><a th:href="@{/borrar/{id}(id=${pala.idPala})}">Borrar</a></button></td>
+                    <td>
+                    <button class="btn btn-warning"><a th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a></button>
+                	<button class="btn btn-danger"><a th:href="@{/borrar/{id}(id=${pala.idPala})}">Borrar</a></button>
+                	</td>
                 </tr>
             </tbody>
         </table>
