@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.proyectofinal.controladores;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,24 +32,33 @@ public class ShoppingCartController {
     @GetMapping ("/carrito")
     public String showCarrito (Model model) {
     	
-    	if (model.addAttribute("products",shoppingCartService.getProductsInCart()) == null)
-    		return "redirect:/";
-    	return "cart";
+    	if (model.addAttribute("products",shoppingCartService.getPalasEnCarrito()) == null)
+    		return "redirect:/productos";
+    	return "carrito";
     }
 
     @GetMapping ("/productoACarrito/{id}")
     public String productoACarrito (@PathVariable("id") Long id, Model model) {
     	
-    	shoppingCartService.addPala(palaServicio.findById(id));
-    	    		 	
-    	return "redirect:/carrito";
+    	Optional<Pala> pCarrito = palaServicio.findById(id);
+		if (pCarrito != null) {
+			shoppingCartService.addPala(pCarrito.get());
+			return "productos";
+		} else {
+			return "redirect:/carrito"; 
+		}
     }
     
     @GetMapping("/borrarProducto/{id}")
     public String removeProductFromCart(@PathVariable("id") Long id) {
         
-    	shoppingCartService.borrarPala(palaServicio.findById(id));
-        return "redirect:/carrito";
+    	Optional<Pala> pCarrito = palaServicio.findById(id);
+		if (pCarrito != null) {
+			shoppingCartService.borrarPala(pCarrito.get());
+			return "redirect:/carrito";
+		} else {
+			return "productos";
+		}
     }
     
     @ModelAttribute("total_carrito")
