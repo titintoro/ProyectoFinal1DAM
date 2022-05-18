@@ -32,7 +32,7 @@ public class ShoppingCartController {
     @GetMapping ("/carrito")
     public String showCarrito (Model model) {
     	
-    	if (model.addAttribute("products",shoppingCartService.getPalasEnCarrito()) == null)
+    	if (model.addAttribute("palas",shoppingCartService.getPalasEnCarrito()) == null)
     		return "redirect:/productos";
     	return "carrito";
     }
@@ -43,9 +43,9 @@ public class ShoppingCartController {
     	Optional<Pala> pCarrito = palaServicio.findById(id);
 		if (pCarrito != null) {
 			shoppingCartService.addPala(pCarrito.get());
-			return "productos";
+			return "redirect:/carrito";
 		} else {
-			return "redirect:/carrito"; 
+			return "productos"; 
 		}
     }
     

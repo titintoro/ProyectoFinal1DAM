@@ -61,7 +61,7 @@ public class PalaController {
 		return "redirect:/private/list";
 	}
 	
-	@GetMapping("/borrar/{idPala}")
+	@GetMapping("admin/borrar/{idPala}")
 	public String borrar(@PathVariable("idPala") long id) {
 		palaServicio.deleteById(id);
 		return "redirect:/private/list";

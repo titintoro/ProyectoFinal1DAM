@@ -39,18 +39,37 @@
                                               ? ${pala.imagen} : 'http://placehold.it/48x48'"
                          alt="imagen del producto" />
                     </td>
-                    <td th:text="${pala.marca}">Marca</td>
-                    <td th:text="${pala.nombre}">Modelo</td>
-                    <td th:text="${pala.unidades}">Uds</td>
-                    <td th:text="${pala.precio}">Precio</td>
+                    <td class="mx-auto fw-bold" th:text="${pala.marca}">Marca</td>
+                    <td class="mx-auto fw-bold" th:text="${pala.nombre}">Modelo</td>
+                    <td class="mx-auto fw-bold" th:text="${pala.unidades}">Uds</td>
+                    <td class="mx-auto fw-bold" th:text="${pala.precio}">Precio</td>
                     <td>
-	                    <button class="btn btn-warning"><a th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a></button>
-	                	<button class="btn btn-danger"><a th:href="@{/borrar/{id}(id=${pala.idPala})}">Borrar</a></button>
-	                	<button class="btn btn-success text-decoration-none text-white"><a th:href="@{/productoACarrito/{id}(id=${pala.idPala})}">Añadir al carrito</a></button>
+	                    <a class="btn btn-outline-warning text-decoration-none" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a>
+	                	 <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal"
+                                th:attr="data-bs-target='#myModal'+${pala.idPala}">Borrar</a>
+
+                            <div class="modal" id="myModal" tabindex="-1" th:id="'myModal'+${pala.idPala}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-danger" id="exampleModalLabel">¡CUIDADO!</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Estas seguro de que quieres borrar esta pala? Esta opción no se puede deshacer.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                            <a href="#" th:href="@{/admin/borrar/{id}(id=${pala.idPala})}"
+                                                class="btn btn-danger">Borrar pala</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+	                	<a class="btn btn-outline-success text-decoration-none" th:href="@{/productoACarrito/{id}(id=${pala.idPala})}">Añadir al carrito</a>
                 		
-                		<a href="/productoACarrito/" th:href="@{/productoACarrito/{id}(id=${pala.idPala})}">
-								<button class="btn btn-success text-decoration-none text-white">Añadir al carritoAngel</button>
-						</a>
                 	</td>
                 </tr>
             </tbody>
@@ -59,6 +78,7 @@
 
 
     <footer th:replace="~{fragmentos/footer::footer}"></footer>
+    
 </body>
 
 </html>
