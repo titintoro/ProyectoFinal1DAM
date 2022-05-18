@@ -47,6 +47,10 @@
 	                    <button class="btn btn-warning"><a th:href="@{/editar/{id}(id=${pala.idPala})}">Editar</a></button>
 	                	<button class="btn btn-danger"><a th:href="@{/borrar/{id}(id=${pala.idPala})}">Borrar</a></button>
 	                	<button class="btn btn-success text-decoration-none text-white"><a th:href="@{/productoACarrito/{id}(id=${pala.idPala})}">Añadir al carrito</a></button>
+                		
+                		<a href="/productoACarrito/" th:href="@{/productoACarrito/{id}(id=${pala.idPala})}">
+								<button class="btn btn-success text-decoration-none text-white">Añadir al carritoAngel</button>
+						</a>
                 	</td>
                 </tr>
             </tbody>
