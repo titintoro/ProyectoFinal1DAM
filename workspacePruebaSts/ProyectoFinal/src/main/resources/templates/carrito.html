@@ -28,11 +28,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="element : ${products.entrySet()}">
+                    <tr th:each="element : ${palas.entrySet()}">
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
                             <a class="thumbnail pull-left" href="#"> 
-                            	<img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;" th:src="${element.key.image}" /> </a>
+                            	<img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;" th:src="${element.key.imagen}" /> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#"><span th:text="${element.key.nombre}">Product name</span></a></h4>
                                 <h5 class="media-heading"> by <a href="#">Salesianos.com</a></h5>
@@ -76,15 +76,5 @@
         </div>
     </div>
 </div>
-	<!-- /.container -->
-
-
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
