@@ -64,15 +64,17 @@ public class ShoppingCartController {
     @ModelAttribute("total_carrito")
     public Double totalCarrito () {
     	
-    	Map <Pala,Integer> carrito=shoppingCartService.getPalasEnCarrito();
-    	double total=0.0;
-    	if (carrito !=null) {
-        	for (Pala p: carrito.keySet()) {
-        		total+=p.getPrecio()*carrito.get(p);
-        	}
-        	return total;
+    		Map <Pala,Integer> carrito=shoppingCartService.getPalasEnCarrito();
+    		double total=0.0;
+    		if (carrito !=null) {
+    	    	for (Pala p: carrito.keySet()) {
+    	    		total+=p.getPrecio()*carrito.get(p);
+    	    	}
+    	    	return total;
+    		}
+    		
+    		return 0.0;
     	}
     	
-    	return 0.0;
-    }
+    
 }

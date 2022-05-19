@@ -1,28 +1,57 @@
-function validarFormulario(){
-		let validarNombre = document.getElementById("nombre").value;
-		let validarImagen = document.getElementById("imagen").value;
-		let validarPrecio = document.getElementById("precio").value;
-		let validarUnidades = document.getElementById("uds").value;
+	
+	document.getElementById("nombre").addEventListener("blur",comprobarNombre);
+	document.getElementById("marca").addEventListener("blur",comprobarMarca);
+    document.getElementById("imagen").addEventListener("blur",comprobarImagen);
+    document.getElementById("fechaLiquidacion").addEventListener("blur",comprobarFechaLiquidacion);
+    document.getElementById("precio").addEventListener("blur",comprobarPrecio);
+    document.getElementById("uds").addEventListener("blur",comprobarunidades);
 
-		if(validarNombre.length == 0){
-			cambiarApariencia(nombre);
-			alert("Introduzca un nombre para la pala");
-		}else if(validarImagen== 0){
-			alert("Introduzca una imagen");
-		}else if(validarPrecio<=0){
-			alert("Introduzca un precio válido");
-		}else if(validarUnidades<= 0){
-			alert("Introduzca un número de unidades válido");
-		}
+	function comprobarNombre(){
+		
+		let nombre = formulario.nombre;
+		let resultado = nombre.value!=="";
+		
+		cambiarApariencia(nombre,resultado)
+		return resultado;
 	}
-
-function cambiarApariencia(campo){	
+	
+	function comprobarMarca(){
+		
+		let marca = formulario.marca;
+		let resultado = marca.value!=="";
+		
+		cambiarApariencia(marca,resultado)
+		return resultado;
+	}
+	
+	function comprobarFechaLiquidacion(){
+		let fechaLiquidacion = formulario.fechaLiquidacion;
+		let resultado = fechaLiquidacion.value !=="" && Date.parse(fechaLiquidacion.value)>Date.now();
+		
+		cambiarApariencia(fechaLiquidacion,resultado)
+		return resultado;
+	}
+	
+	function comprobarImagen(){
+		
+		let imagen = formulario.imagen;
+		let resultado = imagen.value!=="";
+		
+		cambiarApariencia(marca,resultado)
+		return resultado;
+	}
+	
+function cambiarApariencia(campo, estado){	
+	if(estado){
 		campo.classList.remove("border-danger");
 		campo.classList.add("border-success");
-		//parentNode es el nodo HTML padre que contiene a un nodo. NextElementSibling es el siguiente elemento hermano. 
-		//por tanto, al desplazarme por el árbol estoy accediendo al siguiente hermano al nodo padre 
-		//(ver el código HTML para comprender el recorrido que estamos haciendo)
+		campo.parentNode.nextElementSibling.style.visibility = 'hidden';
+		
+	}
+	else{
 		campo.classList.remove("border-success");
 		campo.classList.add("border-danger");
+		campo.parentNode.nextElementSibling.style.visibility = 'visible';
+	}
 		
 }

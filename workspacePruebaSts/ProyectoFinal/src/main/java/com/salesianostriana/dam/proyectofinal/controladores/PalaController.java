@@ -74,6 +74,10 @@ public class PalaController {
 		return "productos";
 	}
 	
-	
-	
+	/*
+	@ModelAttribute("PrecioPalaDescuento")
+		public double PrecioPalaDescuento(Pala p) {
+		return palaServicio.precioDiaLiquidacion(p);
+	}
+	*/
 }
