@@ -1,4 +1,25 @@
 
+	
+	
+	function validarFormulario(){
+		let validarNombre = document.getElementById("nombre").value;
+		let validarImagen = document.getElementById("imagen").value;
+		let validarPrecio = document.getElementById("precio").value;
+		let validarUnidades = document.getElementById("uds").value;
+
+		if(validarNombre.length == 0){
+			alert("Introduzca un nombre para la pala");
+		}else if(validarImagen== 0){
+			alert("Introduzca una imagen");
+		}else if(validarPrecio<=0){
+			alert("Introduzca un precio válido");
+		}else if(validarUnidades<= 0){
+			alert("Introduzca un número de unidades válido");
+		}
+	}
+	
+
+
 	//para asociar cada método al evento de retirar el foco del campo
 	document.getElementById("nombre").addEventListener("blur",pasarNombreMarcaAMayusculas);
 	document.getElementById("imagen").addEventListener("blur",pasarNombreApellidosAMayusculas);

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinal.model.Pala;
 import com.salesianostriana.dam.proyectofinal.servicios.PalaServicio;
@@ -54,7 +55,7 @@ public class PalaController {
 		}
 	}
 	
-	//Si peta cambiar redirect:/list por redirect:/
+	//Si peta cambiar redirect:private/list por redirect:/
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("pala") Pala p) {
 		palaServicio.edit(p);
@@ -67,8 +68,24 @@ public class PalaController {
 		return "redirect:/private/list";
 	}
 	
-
-	
-	
+	@GetMapping("/buscar")
+	public String buscar(Model model, @RequestParam String nombre) {
+		model.addAttribute("lista", palaServicio.buscarPorNombre(nombre));
+		return "productos";
+	}
+	/*
+	@GetMapping("/detalle/{id}")
+	public String detail(Model model, @PathVariable Long id) {
+		
+		Optional<Pala> result = palaServicio.findById(id);
+		
+		if (result.isPresent()) {
+			model.addAttribute("pala", result.get());
+			return "/detallePala";			
+		} else {
+			return "redirect:/private/list";
+		}
+		
+	}*/
 	
 }

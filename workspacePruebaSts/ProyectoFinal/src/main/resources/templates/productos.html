@@ -24,10 +24,12 @@
                     <th scope="col">Uds</th>
                     <th scope="col">Precio</th>
                     <th>
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="text" placeholder="¿Qué necesitas?" aria-label="Busqueda">
-                    <button class="btn btn-secondary text-white" type="submit">Buscar</button>
-                	</form>
+ 
+                	<form method="GET" th:action="@{/buscar}" class="d-flex">
+								<input type="text" class="form-control  me-2" placeholder="¿Qué buscas?" name="nombre"
+									id="nombre" th:value="${param.nombre}" /> <input type="submit" class="btn btn-secondary text-white"
+									value="Enviar" />
+							</form>
                     </th>
                     
                 </tr>
