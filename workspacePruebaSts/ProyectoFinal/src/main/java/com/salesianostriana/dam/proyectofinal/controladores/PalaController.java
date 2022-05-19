@@ -73,19 +73,7 @@ public class PalaController {
 		model.addAttribute("lista", palaServicio.buscarPorNombre(nombre));
 		return "productos";
 	}
-	/*
-	@GetMapping("/detalle/{id}")
-	public String detail(Model model, @PathVariable Long id) {
-		
-		Optional<Pala> result = palaServicio.findById(id);
-		
-		if (result.isPresent()) {
-			model.addAttribute("pala", result.get());
-			return "/detallePala";			
-		} else {
-			return "redirect:/private/list";
-		}
-		
-	}*/
+	
+	
 	
 }

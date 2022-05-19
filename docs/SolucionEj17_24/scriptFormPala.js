@@ -8,6 +8,7 @@
 		let validarUnidades = document.getElementById("uds").value;
 
 		if(validarNombre.length == 0){
+			cambiarApariencia(nombre);
 			alert("Introduzca un nombre para la pala");
 		}else if(validarImagen== 0){
 			alert("Introduzca una imagen");
@@ -21,7 +22,7 @@
 
 
 	//para asociar cada método al evento de retirar el foco del campo
-	document.getElementById("nombre").addEventListener("blur",pasarNombreMarcaAMayusculas);
+	document.getElementById("nombre").addEventListener("blur",comprobarNombre);
 	document.getElementById("imagen").addEventListener("blur",pasarNombreApellidosAMayusculas);
 	document.getElementById("marca").addEventListener("blur",comprobarDNI);
 	document.getElementById("fechaLiquidacion").addEventListener("blur",comprobarCorreo);
@@ -47,17 +48,8 @@ function revisarFormulario(){
 }
 
 function pasarNombreMarcaAMayusculas(){
-	//Es más fácil acceder a los campos del formulario de esta forma, ya que existe un objeto
-	// global que tiene por nombre el id que le hayamos dado al formulario. 
-	//Además, puedo acceder a todos los campos a través del name o del id (indistintamente)
-	// que le hayamos dado a cada campo
-	let campoNombre = formulario.nombre;
-	let campoApellidos = formulario.apellidos;
+	let nombre = 
 
-	let resultado = (campoNombre.value!=="")&&(campoMarca.value!=="");
-	if(resultado){		
-		campoNombre.value = campoNombre.value.toUpperCase();
-		campoMarca.value = campoMarca.value.toUpperCase();		
 	}
 	
 	//ver el comentario explicativo en el método cambiarApariencia
@@ -168,20 +160,14 @@ function comprobarEdad(){
    introdujeran datos incorrectos (por lo que se ponía el borde rojo). Si al corregir
    los datos no lo llamásemos, seguiría con el borde rojo y mostrando el mensaje.
 */
-function cambiarApariencia(campo, estado){	
-	if(estado){
+function cambiarApariencia(campo){	
 		campo.classList.remove("border-danger");
 		campo.classList.add("border-success");
-		campo.parentNode.nextElementSibling.style.visibility = 'hidden';
 		//parentNode es el nodo HTML padre que contiene a un nodo. NextElementSibling es el siguiente elemento hermano. 
 		//por tanto, al desplazarme por el árbol estoy accediendo al siguiente hermano al nodo padre 
 		//(ver el código HTML para comprender el recorrido que estamos haciendo)
-	}
-	else{
 		campo.classList.remove("border-success");
 		campo.classList.add("border-danger");
-		campo.parentNode.nextElementSibling.style.visibility = 'visible';
-	}
 		
 }
 

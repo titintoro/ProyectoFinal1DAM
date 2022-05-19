@@ -39,4 +39,5 @@ public class PalaServicio
 		return repositorio.findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCase(cadena, cadena);
 	}
 	
+	
 }

@@ -13,7 +13,5 @@ public class VentaServicio
 
 extends ServicioBaseImpl<Venta, Long, VentaRepository>{
 
-	public void calcular2Ud1euro(){
-		
-	}
+
 }
