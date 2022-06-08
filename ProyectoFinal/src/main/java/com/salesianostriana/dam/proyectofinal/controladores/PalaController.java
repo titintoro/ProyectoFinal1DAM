@@ -37,13 +37,13 @@ public class PalaController {
 		return "formPala";
 	}
 	
-	@PostMapping("/nuevo/submit")
+	@PostMapping("admin/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("pala") Pala p) {
 		palaServicio.save(p);
 		return "redirect:/private/list";
 	}
 	
-	@GetMapping("editar/{idPala}")
+	@GetMapping("admin/editar/{idPala}")
 	public String mostrarFormularioEdicion(@PathVariable("idPala") long id, Model model) {
 		Optional<Pala> pEditar = palaServicio.findById(id);
 		if (pEditar != null) {
@@ -54,8 +54,7 @@ public class PalaController {
 		}
 	}
 	
-	//Si peta cambiar redirect:private/list por redirect:/
-	@PostMapping("/editar/submit")
+	@PostMapping("admin/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("pala") Pala p) {
 		palaServicio.edit(p);
 		return "redirect:/private/list";
@@ -67,7 +66,7 @@ public class PalaController {
 		return "redirect:/private/list";
 	}
 	
-	@GetMapping("/buscar")
+	@GetMapping("private/buscar")
 	public String buscar(Model model, @RequestParam String nombre) {
 		model.addAttribute("lista", palaServicio.buscarPorNombre(nombre));
 		return "productos";

@@ -21,9 +21,9 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/inicio}">Inicio</a></li>
+                    <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/private/inicio}">Inicio</a></li>
                     <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/private/list}">Productos</a></li>
-                    <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/carrito}">Carrito</a></li>
+                    <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/private/carrito}">Carrito</a></li>
                     <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/admin/nuevo}">Agregar producto</a></li>
                 </ul>
                 <div class="d-flex">

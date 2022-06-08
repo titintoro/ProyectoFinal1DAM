@@ -19,7 +19,7 @@ public class LoginController {
         return "logIn.html";
     }
     
-    @GetMapping("/inicio")
+    @GetMapping("private/inicio")
 	public String inicio() {
 		return "index";
 	}

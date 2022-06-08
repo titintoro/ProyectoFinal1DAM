@@ -30,7 +30,7 @@ public class ShoppingCartController {
         this.palaServicio = palaServicio;
     }
     
-    @GetMapping ("/carrito")
+    @GetMapping ("private/carrito")
     public String showCarrito (Model model) {
     	
     	if (model.addAttribute("palas",shoppingCartService.getPalasEnCarrito()) == null)
@@ -38,31 +38,31 @@ public class ShoppingCartController {
     	return "carrito";
     }
 
-    @GetMapping ("/productoACarrito/{id}")
+    @GetMapping ("private/productoACarrito/{id}")
     public String productoACarrito (@PathVariable("id") Long id, Model model) {
     	
     	Optional<Pala> pCarrito = palaServicio.findById(id);
 		if (pCarrito != null) {
 			shoppingCartService.addPala(pCarrito.get());
-			return "redirect:/carrito";
+			return "redirect:/private/carrito";
 		} else {
 			return "productos"; 
 		}
     }
     
-    @GetMapping("/borrarProducto/{id}")
+    @GetMapping("private/borrarProducto/{id}")
     public String removeProductFromCart(@PathVariable("id") Long id) {
         
     	Optional<Pala> pCarrito = palaServicio.findById(id);
 		if (pCarrito != null) {
 			shoppingCartService.borrarPala(pCarrito.get());
-			return "redirect:/carrito";
+			return "redirect:/private/carrito";
 		} else {
 			return "productos";
 		}
     }
     
-    @ModelAttribute("total_carrito")
+    @ModelAttribute("private/total_carrito")
     public Double totalCarrito () {
     	
     		Map <Pala,Integer> carrito=shoppingCartService.getPalasEnCarrito();
@@ -77,7 +77,7 @@ public class ShoppingCartController {
     		return 0.0;
     	}
     	
-    @PostMapping("/finalizar_compra")
+    @PostMapping("private/finalizar_compra")
     public String crear_venta(){
     	shoppingCartService.finalizarCompra();
     	return "productos"; 

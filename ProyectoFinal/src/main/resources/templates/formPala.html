@@ -19,7 +19,7 @@
         <main class="w-75 mx-auto">
             <div class="container min-vh-100 mt-3">
                 <h2>Añadir modelo</h2>
-                <form id="formulario" th:action="${pala.idPala != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${pala}" method="post">
+                <form id="formulario" th:action="${pala.idPala != 0} ? @{/admin/editar/submit} : @{/admin/nuevo/submit}" th:object="${pala}" method="post">
                     <input th:if="${pala.idPala != 0}" type="hidden" name="idPala" th:field="*{idPala}" />
                     <div class="mb-3 mt-3">
                         <label for="modelo">Nombre del modelo</label>

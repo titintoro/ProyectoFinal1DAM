@@ -49,7 +49,7 @@
                         <td class="col-sm-1 col-md-1">
                         
                         
-                        <a  class="btn btn-danger" th:href="@{/borrarProducto/{id}(id=${element.key.idPala})}">
+                        <a  class="btn btn-danger" th:href="@{/private/borrarProducto/{id}(id=${element.key.idPala})}">
                             Eliminar
                         </a></td>
                     </tr>                    
@@ -68,7 +68,7 @@
                         <a class="btn btn-outline-primary float-leftv" th:href="@{/private/list}">Seguir Comprando</a></li>
                         </td>
                         <td>
-                        <form th:object="${venta}" th:action="@{/finalizar_compra}" method="post">
+                        <form th:object="${venta}" th:action="@{/private/finalizar_compra}" method="post">
                             <button class="btn btn-outline-success" type="submit">Finalizar Compra</button>
                         </form>
                         
