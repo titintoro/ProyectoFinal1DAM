@@ -25,6 +25,7 @@ extends ServicioBaseImpl<LineaVenta, Long, LineaVentaRepository>{
 		
 		//Gracias a este cálculo adivinamos si el numero de palas es par por lo que cada 2 palas aplicariamos el descuento
 		
+		/*
 		if ((l.getCantidad()%2)==0) {
 			
 			l.setDescuento((l.getPrecio()/2)+(l.getCantidad()/2));
@@ -37,7 +38,7 @@ extends ServicioBaseImpl<LineaVenta, Long, LineaVentaRepository>{
 			
 			l.setPrecio((l.getPrecio()/2)+(l.getCantidad()/2));
 			
-		}
+		}*/
 		
 	}
 	

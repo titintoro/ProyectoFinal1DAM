@@ -10,7 +10,9 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.salesianostriana.dam.proyectofinal.model.LineaVenta;
 import com.salesianostriana.dam.proyectofinal.model.Pala;
+import com.salesianostriana.dam.proyectofinal.model.Venta;
 import com.salesianostriana.dam.proyectofinal.repositorios.PalaRepository;
 
 
@@ -20,11 +22,14 @@ import com.salesianostriana.dam.proyectofinal.repositorios.PalaRepository;
 public class ShoppingCartService {
 
 	private PalaRepository palaRepository;
-	
+	private Pala pala;
 	private Map<Pala, Integer> palas = new HashMap <> ();
 	
 	@Autowired
+	private VentaServicio vs;
 	
+	
+	@Autowired
 	public ShoppingCartService (PalaRepository palaRepository) {
 		this.palaRepository=palaRepository;
 	}
@@ -54,7 +59,29 @@ public class ShoppingCartService {
         return Collections.unmodifiableMap(palas);
     }
 
-    
+    public void finalizarCompra() {
+    	Venta v = new Venta();
+    	vs.save(v);
+    	double totalVenta=0;
+    	
+    	LineaVenta lvn;
+    	
+    	for (Map.Entry<Pala, Integer> lineaVenta : palas.entrySet()){
+    		
+			lvn= LineaVenta
+					.builder()
+					.pala(lineaVenta.getKey())
+					.cantidad(lineaVenta.getValue())
+					.subtotal(lineaVenta.getValue()*lineaVenta.getKey().getPrecio())
+					.build();
+			totalVenta+=(lineaVenta.getValue()*lineaVenta.getKey().getPrecio());
+			lvn.agregarAVenta(v);
+		}
+    	v.setPrecioFinal(totalVenta);
+    	vs.save(v);
+    	palas.clear();
+    	
+    }
 
     
 }

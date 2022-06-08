@@ -68,7 +68,11 @@
                         <a class="btn btn-outline-primary float-leftv" th:href="@{/private/list}">Seguir Comprando</a></li>
                         </td>
                         <td>
-                        <a class="btn btn-outline-success">Finalizar Compra</a>
+                        <form th:object="${venta}" th:action="@{/finalizar_compra}" method="post">
+                            <a class="btn btn-outline-success">Finalizar Compra</a>
+
+                        </form>
+                        
                         </td>
                     </tr>
                 </tbody>

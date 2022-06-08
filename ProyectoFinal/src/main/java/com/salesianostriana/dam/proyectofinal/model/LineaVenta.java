@@ -20,26 +20,27 @@ public class LineaVenta {
 	@Id @GeneratedValue
 	private long idLineaVenta;
 	
-	@ManyToOne
-	private Pala pala;
-	
 	private int cantidad;
 	
 	private double precio;
 	
-	private double descuento;
+	private double subtotal;
 	
 	@ManyToOne
 	private Venta venta;
 	
-	public void addToVenta(Venta venta) {
+	public void agregarAVenta(Venta venta) {
 		this.venta = venta;
 		venta.getListaPalas().add(this);
 	}
 	
-	public void removeFromVenta(Venta venta) {
+	public void eliminarDeVenta(Venta venta) {
 		venta.getListaPalas().remove(this);
 		this.venta = null;
 	}
+	
+	
+	@ManyToOne
+	private Pala pala;
 	
 }
