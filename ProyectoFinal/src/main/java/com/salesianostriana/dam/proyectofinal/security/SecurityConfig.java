@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login").failureUrl("/login-error").defaultSuccessUrl("/inicio").permitAll()
+                .and().formLogin().loginPage("/").loginProcessingUrl("/login").failureUrl("/login-error").defaultSuccessUrl("/private/inicio").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll().and().headers().frameOptions().disable();
 
     }

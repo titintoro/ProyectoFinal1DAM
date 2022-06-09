@@ -32,6 +32,8 @@
                             placeholder="Introduzca la URL de la imagen" name="imagen" th:field="*{imagen}">
                     </div>
                      <h4 class="text-danger d-none">Escriba un enlace para la imagen válido.</h4>
+                   
+                    <!--
                     <div>
                         <label for="marca">Marca</label>
                         <div class="form-check">
@@ -50,7 +52,16 @@
                             <label class="form-check-label" for="marcaNox"></label>
                         </div>
                     </div>
+                    -->
+                    
 
+                    <div>
+                        <select id="marca" class="form-control" th:field="*{marca}">
+                            <option value="">Marca</option>
+                            <option th:each="marca : ${marcas}" th:value="${marca.idMarca}" th:text="${marca.nombre}">Nulo</option>
+            
+                        </select>			
+                    </div>
                     <div class="mb-3 mt-3">
                         <label for="fechaLiquidacion">Fecha de liquidación</label>
                         <input type="date" class="form-control w-25" id="fechaLiquidacion" name="fechaLiquidacion" th:field="*{fechaLiquidacion}">

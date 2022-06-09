@@ -11,7 +11,7 @@ public interface PalaRepository
 
 extends JpaRepository<Pala, Long>{
 
-	List<Pala> findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCase(String nombre, String apellidos);
+	List<Pala> findByNombreContainsIgnoreCaseOrMarcaNombreContainsIgnoreCase(String nombrePala, String nombreMarca);
 	
 	 Optional<Pala> findById(Long id);
 	

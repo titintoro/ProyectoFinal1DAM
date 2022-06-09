@@ -1,13 +1,14 @@
 package com.salesianostriana.dam.proyectofinal.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,7 +32,9 @@ public class Pala {
 	
 	private String nombre;
 	
-	private  String marca;
+	@ManyToOne
+	@JoinColumn(name = "id_marca")
+	private Marca marca;
 	
 	private int unidades;
 	

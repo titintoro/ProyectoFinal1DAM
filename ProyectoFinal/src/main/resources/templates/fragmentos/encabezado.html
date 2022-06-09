@@ -25,10 +25,19 @@
                     <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/private/list}">Productos</a></li>
                     <li sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/private/carrito}">Carrito</a></li>
                     <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/admin/nuevo}">Agregar producto</a></li>
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="nav-link text-white dropdown-toggle"  href="#" data-bs-toggle="dropdown">Gestión</a>
+                        <ul class="dropdown-menu">
+                        <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="dropdown-item" th:href="@{/admin/nuevo}">Agregar pala</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="dropdown-item" th:href="@{/admin/listamarcas}">Mostrar marcas</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="dropdown-item" th:href="@{/admin/nuevamarca}">Agregar marca</a></li>
+                        </ul>
+                      </li>
+                
                 </ul>
                 <div class="d-flex">
                     <span sec:authorize="isAuthenticated()" class="text-white me-2 mt-3">Bienvenido </span><span class="text-white me-5 mt-3" sec:authorize="isAuthenticated()" sec:authentication="name">Nombre</span>
-                    <a sec:authorize="isAuthenticated()" class="btn btn-outline-danger text-white fw-bold text-decoration-none" th:href="@{/logout}">Salir</a></button>
+                    <a sec:authorize="isAuthenticated()" class="btn btn-outline-danger text-white fw-bold text-decoration-none" th:href="@{/logout}">Salir</a>
                 </div>
             </div>
         </div>

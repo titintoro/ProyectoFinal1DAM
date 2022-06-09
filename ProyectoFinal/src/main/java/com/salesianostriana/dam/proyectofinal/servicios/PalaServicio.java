@@ -41,7 +41,7 @@ public class PalaServicio
 	
 	
 	public List<Pala> buscarPorNombre(String cadena) {
-		return repositorio.findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCase(cadena, cadena);
+		return repositorio.findByNombreContainsIgnoreCaseOrMarcaNombreContainsIgnoreCase(cadena, cadena);
 	}
 	
     @Autowired
