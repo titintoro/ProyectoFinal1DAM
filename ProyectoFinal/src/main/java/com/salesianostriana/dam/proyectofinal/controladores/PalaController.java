@@ -46,7 +46,7 @@ public class PalaController {
 	@GetMapping("admin/editar/{idPala}")
 	public String mostrarFormularioEdicion(@PathVariable("idPala") long id, Model model) {
 		Optional<Pala> pEditar = palaServicio.findById(id);
-		if (pEditar != null) {
+		if (pEditar.isPresent()) {
 			model.addAttribute("pala", pEditar.get());
 			return "formPala";
 		} else {

@@ -31,7 +31,7 @@
                     <td class="mx-auto fw-bold" th:text="${marca.ceo}">CEO</td>
 
                     <td>
-	                    <a class="btn btn-outline-warning text-decoration-none" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin/editar/{id}(id=${marca.idMarca})}">Editar</a>
+	                    <a class="btn btn-outline-warning text-decoration-none" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin/editarmarca/{idMarca}(idMarca=${marca.idMarca})}">Editar</a>
 	                	 <a href="#" sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal"
                                 th:attr="data-bs-target='#myModal'+${marca.idMarca}">Borrar</a>
 
@@ -49,14 +49,13 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Cerrar</button>
-                                            <a href="#" th:href="@{admin/borrarmarca/{id}(id=${marca.idMArca})}"
+                                            <a href="#" th:href="@{/admin/borrarmarca/{idMarca}(idMarca=${marca.idMarca})}"
                                                 class="btn btn-danger">Borrar marca</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-	                	<a class="btn btn-outline-success text-decoration-none" th:href="@{/private/productoACarrito/{id}(id=${marca.idMarca})}">Añadir al carrito</a>
-                		
+
                 	</td>
                 </tr>
             </tbody>

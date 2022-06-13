@@ -43,7 +43,7 @@ public class MarcaController {
 	
 	
 
-	@GetMapping("admin/editarmarca/{id}")
+	@GetMapping("admin/editarmarca/{idMarca}")
 	public String mostrarFormularioEdicionMarca(@PathVariable("idMarca") long id, Model model) {
 		
 		Marca mEditar = marcaServ.findById(id);
@@ -66,7 +66,7 @@ public class MarcaController {
 	}
 	
 
-	@GetMapping("admin/borrarmarca/{id}")
+	@GetMapping("admin/borrarmarca/{idMarca}")
 	public String borrar(@PathVariable("idMarca") long id) {
 		marcaServ.delete(id);
 		return "redirect:/admin/listamarcas";
