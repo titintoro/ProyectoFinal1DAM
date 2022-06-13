@@ -59,7 +59,6 @@
                         <select id="marca" class="form-control" th:field="*{marca}">
                             <option value="">Marca</option>
                             <option th:each="marca : ${marcas}" th:value="${marca.idMarca}" th:text="${marca.nombre}">Nulo</option>
-            
                         </select>			
                     </div>
                     <div class="mb-3 mt-3">
