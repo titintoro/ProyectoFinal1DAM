@@ -1,7 +1,9 @@
 package com.salesianostriana.dam.proyectofinal.controladores;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.dam.proyectofinal.model.Marca;
 import com.salesianostriana.dam.proyectofinal.model.Pala;
+import com.salesianostriana.dam.proyectofinal.servicios.MarcaServicio;
 import com.salesianostriana.dam.proyectofinal.servicios.PalaServicio;
 
 
@@ -18,7 +22,11 @@ import com.salesianostriana.dam.proyectofinal.servicios.PalaServicio;
 @Controller
 public class PalaController {
 
+	@Autowired
 	private PalaServicio palaServicio;
+	
+	@Autowired
+	private MarcaServicio marcaServicio;
 	
 	public PalaController(PalaServicio servicio) {
 		this.palaServicio= servicio;
@@ -38,14 +46,19 @@ public class PalaController {
 	}
 	
 	@PostMapping("admin/nuevo/submit")
-	public String procesarFormulario(@ModelAttribute("pala") Pala p) {
+	public String procesarFormulario(@ModelAttribute("pala") Pala p, Model model) {
 		palaServicio.save(p);
+
+		//model.addAttribute("marcas", marcaServicio.findAll());
 		return "redirect:/private/list";
 	}
 	
 	@GetMapping("admin/editar/{idPala}")
 	public String mostrarFormularioEdicion(@PathVariable("idPala") long id, Model model) {
 		Optional<Pala> pEditar = palaServicio.findById(id);
+
+		//model.addAttribute("marcas", marcaServicio.findAll());
+		
 		if (pEditar.isPresent()) {
 			model.addAttribute("pala", pEditar.get());
 			return "formPala";
@@ -78,4 +91,9 @@ public class PalaController {
 		return palaServicio.precioDiaLiquidacion();
 	}
 	*/
+	
+	@ModelAttribute("marcas")
+	public List<Marca> todasLasMarcas() {
+		return marcaServicio.findAll();
+	}
 }
