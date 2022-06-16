@@ -4,7 +4,7 @@ package com.salesianostriana.dam.proyectofinal.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +24,5 @@ public class Marca {
 	private String nombre;
 	private String ceo;
 	
-	@ManyToOne
-	private Pala pala;
+	
 }
