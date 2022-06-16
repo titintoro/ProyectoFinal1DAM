@@ -14,7 +14,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.salesianostriana.dam.proyectofinal.model.LineaVenta;
 import com.salesianostriana.dam.proyectofinal.model.Pala;
 import com.salesianostriana.dam.proyectofinal.model.Venta;
-import com.salesianostriana.dam.proyectofinal.repositorios.PalaRepository;
 
 
 

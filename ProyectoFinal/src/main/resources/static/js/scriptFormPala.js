@@ -83,13 +83,11 @@ function cambiarApariencia(campo, estado) {
 	if (estado) {
 		campo.classList.remove("border-danger");
 		campo.classList.add("border-success");
-		campo.parentNode.nextElementSibling.style.visibility = 'hidden';
 
 	}
 	else {
 		campo.classList.remove("border-success");
 		campo.classList.add("border-danger");
-		campo.parentNode.nextElementSibling.style.visibility = 'visible';
 	}
 	// Los mensajes no consigo que funcionen tras probar varias cosas, 
 	// estan en formPala.html como h4 tras cada div explicando por que no esta correcto el campo.

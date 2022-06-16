@@ -3,20 +3,19 @@ package com.salesianostriana.dam.proyectofinal.controladores;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.proyectofinal.model.Venta;
-import com.salesianostriana.dam.proyectofinal.servicios.ShoppingCartService;
 import com.salesianostriana.dam.proyectofinal.servicios.VentaServicio;
 
 
 @Controller
 public class VentaController {
 	
-	@Autowired
-    private ShoppingCartService shoppingCartService;
 	
+	@Autowired
 	private VentaServicio vs;
 	
 	
@@ -25,13 +24,13 @@ public class VentaController {
 		vs.save(v);
 		return "redirect:/private/list";
 	}
-	/*
-	@GetMapping("admin/MostrarVentas")
-	public String mostrarlistaVentas(Model model) {
-		model.addAttribute("lista", vs.findAll());
+	
+	
+	@GetMapping({"admin/listaventas"})
+	public String listarVentas(Model model) {
+		model.addAttribute("ventas", vs.findAll());
 		return "ventas";
 	}
-*/
 }
 
 

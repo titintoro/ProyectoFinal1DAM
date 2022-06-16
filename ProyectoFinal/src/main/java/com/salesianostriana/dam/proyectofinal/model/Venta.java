@@ -36,7 +36,7 @@ public class Venta {
 	@Builder.Default
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy="venta", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="venta", fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
 	private List<LineaVenta> listaPalas  = new ArrayList<>();
 	
 	

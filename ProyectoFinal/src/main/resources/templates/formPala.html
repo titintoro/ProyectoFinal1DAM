@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Formulario</title>
+    <title>Agregar Pala</title>
     <link rel="shortcut icon" href="../../static/media/titleicon.png">
     <script type="text/javascript" th:src="@{/js/scriptFormPala.js}" defer></script>
 </head>
@@ -31,32 +31,11 @@
                         <input type="url" class="form-control w-50" id="imagen"
                             placeholder="Introduzca la URL de la imagen" name="imagen" th:field="*{imagen}">
                     </div>
-                     <h4 class="text-danger d-none">Escriba un enlace para la imagen válido.</h4>
-                   
-                    <!--
-                    <div>
-                        <label for="marca">Marca</label>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="marca" name="marca"
-                                value="Head" th:field="*{marca}" checked>Head
-                            <label class="form-check-label" for="marcaHead"></label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="marca" name="marca"
-                                value="Bullpadel" th:field="*{marca}">Bullpadel
-                            <label class="form-check-label" for="marcaBullpadel"></label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="marca" name="marca" value="Nox" th:field="*{marca}">Nox
-                            <label class="form-check-label" for="marcaNox"></label>
-                        </div>
-                    </div>
-                    -->
                     
-
+                     <h4 class="text-danger d-none">Escriba un enlace para la imagen válido.</h4>
+                     
                     <div>
-                        <select id="marca" class="form-control" th:field="*{marca}">
+                        <select id="marca" class="form-control w-50" th:field="*{marca}">
                             <option value="">Marca</option>
                             <option th:each="marca : ${marcas}" th:value="${marca.idMarca}" th:text="${marca.nombre}">Nulo</option>
                         </select>			

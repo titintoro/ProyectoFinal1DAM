@@ -48,7 +48,7 @@ public class Pala {
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy="pala", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="pala", fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
 	private List<LineaVenta> listaPalas;
 	
 }
