@@ -46,7 +46,7 @@ public class ShoppingCartController {
 			shoppingCartService.addPala(pCarrito.get());
 			return "redirect:/private/carrito";
 		} else {
-			return "productos"; 
+			return "redirect:/productos"; 
 		}
     }
     
@@ -62,7 +62,7 @@ public class ShoppingCartController {
 		}
     }
     
-    @ModelAttribute("private/total_carrito")
+    @ModelAttribute("total_carrito")
     public Double totalCarrito () {
     	
     		Map <Pala,Integer> carrito=shoppingCartService.getPalasEnCarrito();
@@ -80,7 +80,7 @@ public class ShoppingCartController {
     @PostMapping("private/finalizar_compra")
     public String crear_venta(){
     	shoppingCartService.finalizarCompra();
-    	return "productos"; 
+    	return "redirect:/private/list"; 
     	
     }
     

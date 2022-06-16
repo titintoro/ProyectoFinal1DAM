@@ -31,8 +31,6 @@ public class Venta {
 	
 	private LocalDate fechaVenta;
 	
-	private int cantidad;
-	
 	private double precioFinal;
 
 	@Builder.Default
